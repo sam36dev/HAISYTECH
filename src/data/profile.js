@@ -20,7 +20,8 @@ export const profile = {
   // TROCAR pelos seus contatos reais
   email: 'samueldesenvolvedor36@gmail.com',
   // chave do Web3Forms (web3forms.com), lida do .env / variáveis da Vercel
-  formKey: (import.meta.env.WEB3FORMS_API_KEY || '').trim().replace(/^["']|["']$/g, '').trim(),
+  // pega só o UUID, mesmo que a variável tenha sido colada com nome, espaços ou aspas
+  formKey: (import.meta.env.WEB3FORMS_API_KEY || '').match(/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/i)?.[0] || '',
   socials: [
     { label: 'GitHub', url: 'https://github.com/sam36dev', handle: '@sam36dev' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/', handle: 'company/haisytech' },
