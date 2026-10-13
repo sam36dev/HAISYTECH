@@ -5,7 +5,7 @@ import { shortHash } from '../lib/events.js';
 export default function Timeline() {
   return (
     <section id="jornada" className="section container">
-      <SectionHead index="04" label="jornada" title="git log --graph">
+      <SectionHead index="05" label="jornada" title="git log --graph">
         Minha trajetória, commit por commit.
       </SectionHead>
 

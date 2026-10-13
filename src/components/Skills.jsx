@@ -7,7 +7,7 @@ const DURATIONS = [28, 44, 64];
 export default function Skills() {
   return (
     <section id="stack" className="section container">
-      <SectionHead index="02" label="stack" title="Meu sistema orbital">
+      <SectionHead index="03" label="stack" title="Meu sistema orbital">
         As tecnologias que giram em torno de tudo o que eu construo.
       </SectionHead>
 

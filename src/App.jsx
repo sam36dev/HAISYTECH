@@ -3,6 +3,7 @@ import BootScreen from './components/BootScreen.jsx';
 import Cursor from './components/Cursor.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
+import Services from './components/Services.jsx';
 import Projects from './components/Projects.jsx';
 import Skills from './components/Skills.jsx';
 import Terminal from './components/Terminal.jsx';
@@ -73,6 +74,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero ready={booted} />
+        <Services />
         <Projects />
         <Skills />
         <Terminal />

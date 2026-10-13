@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { openPalette, scrollToSection } from '../lib/events.js';
 
 export const SECTIONS = [
+  { id: 'servicos', label: 'serviços' },
   { id: 'projetos', label: 'projetos' },
   { id: 'stack', label: 'stack' },
   { id: 'terminal', label: 'terminal' },

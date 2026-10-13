@@ -185,7 +185,7 @@ export default function Terminal() {
 
   return (
     <section id="terminal" className="section container">
-      <SectionHead index="03" label="terminal" title="Fala comigo pelo terminal">
+      <SectionHead index="04" label="terminal" title="Fala comigo pelo terminal">
         Um shell de verdade (tá, quase). Explore o portfólio do jeito que dev gosta.
       </SectionHead>
 

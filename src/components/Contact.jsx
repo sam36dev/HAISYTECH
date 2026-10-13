@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SectionHead from './SectionHead.jsx';
-import { profile } from '../data/profile.js';
+import { profile, services } from '../data/profile.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Contact() {
-  const [form, setForm] = useState({ nome: '', email: '', mensagem: '' });
+  const [form, setForm] = useState({ nome: '', email: '', servicos: [], mensagem: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [error, setError] = useState('');
 
@@ -14,13 +14,50 @@ export default function Contact() {
     if (status !== 'sending') setStatus('idle');
   };
 
-  const submit = (e) => {
+  useEffect(() => {
+    const onRequest = (e) => setForm((f) => ({ ...f, servicos: e.detail }));
+    window.addEventListener('ds:request-services', onRequest);
+    return () => window.removeEventListener('ds:request-services', onRequest);
+  }, []);
+
+  const toggleService = (id) => {
+    setForm((f) => ({
+      ...f,
+      servicos: f.servicos.includes(id) ? f.servicos.filter((s) => s !== id) : [...f.servicos, id],
+    }));
+    if (status !== 'sending') setStatus('idle');
+  };
+
+  const submit = async (e) => {
     e.preventDefault();
     if (!form.nome.trim() || !form.mensagem.trim()) return fail('preencha nome e mensagem');
     if (!EMAIL_RE.test(form.email)) return fail('e-mail inválido');
+    if (!profile.formKey) return fail('formulário ainda não configurado — use o e-mail abaixo');
     setStatus('sending');
-    // Ainda não há back-end: simulamos o envio. Na próxima fase isso vira um fetch('/api/contact').
-    setTimeout(() => setStatus('sent'), 1400);
+
+    const nomes = form.servicos.map((id) => services.find((s) => s.id === id)?.title ?? id);
+    try {
+      // Web3Forms entrega a mensagem direto no e-mail, sem back-end próprio
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: profile.formKey,
+          subject: `Portfólio: ${nomes.length ? `orçamento de ${nomes.join(', ')}` : 'nova mensagem'}`,
+          from_name: 'Portfólio Haisy Tech',
+          name: form.nome,
+          email: form.email,
+          servicos: nomes.join(', ') || '—',
+          message: form.mensagem,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) throw new Error(data.message || `erro ${res.status}`);
+      setStatus('sent');
+      setForm({ nome: '', email: '', servicos: [], mensagem: '' });
+    } catch (err) {
+      fail(`não foi possível enviar (${err.message}) — tente pelo e-mail abaixo`);
+    }
   };
 
   const fail = (msg) => {
@@ -32,7 +69,7 @@ export default function Contact() {
 
   return (
     <section id="contato" className="section container">
-      <SectionHead index="05" label="contato" title="Bora construir algo?">
+      <SectionHead index="06" label="contato" title="Bora construir algo?">
         Tem um projeto, uma vaga ou uma ideia maluca? Manda a request.
       </SectionHead>
 
@@ -47,6 +84,24 @@ export default function Contact() {
             onChange={update('email')}
             placeholder="voce@empresa.com"
           />
+          <div className="field">
+            <span className="field-label mono">
+              <span className="t-dim">const</span> servicos <span className="t-dim">=</span>
+            </span>
+            <div className="filters service-picks mono">
+              {services.map((sv) => (
+                <button
+                  key={sv.id}
+                  type="button"
+                  className={`filter ${form.servicos.includes(sv.id) ? 'is-active' : ''}`}
+                  aria-pressed={form.servicos.includes(sv.id)}
+                  onClick={() => toggleService(sv.id)}
+                >
+                  {sv.title.toLowerCase()}
+                </button>
+              ))}
+            </div>
+          </div>
           <Field
             label="mensagem"
             id="c-msg"
@@ -96,8 +151,7 @@ export default function Contact() {
             {status === 'error' && <span className="t-err">400 Bad Request — {error}</span>}
             {status === 'sent' && (
               <span>
-                <span className="t-lime">201 Created</span> — mensagem recebida!{' '}
-                <span className="t-dim">(simulação: o back-end chega na próxima fase)</span>
+                <span className="t-lime">201 Created</span> — mensagem recebida! Respondo em breve.
               </span>
             )}
           </div>

@@ -19,6 +19,8 @@ export const profile = {
   focus: ['performance', 'UX', 'código limpo'],
   // TROCAR pelos seus contatos reais
   email: 'samueldesenvolvedor36@gmail.com',
+  // chave do Web3Forms (web3forms.com), lida do .env / variáveis da Vercel
+  formKey: import.meta.env.WEB3FORMS_API_KEY || '',
   socials: [
     { label: 'GitHub', url: 'https://github.com/sam36dev', handle: '@sam36dev' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/', handle: 'company/haisytech' },
@@ -33,6 +35,44 @@ export const categories = {
   ia: 'IA',
   ferramenta: 'Ferramenta',
 };
+
+// Serviços oferecidos. example: id de um projeto abaixo que serve de exemplo.
+export const services = [
+  {
+    id: 'api',
+    icon: '{ }',
+    accent: 'var(--cyan)',
+    title: 'Construção de APIs',
+    description: 'APIs rápidas e seguras para conectar seu app, site ou sistema a qualquer coisa.',
+    items: ['REST com autenticação', 'Integração com pagamentos e serviços', 'Banco de dados bem modelado', 'Documentação pronta'],
+  },
+  {
+    id: 'sites',
+    icon: '</>',
+    accent: 'var(--violet)',
+    title: 'Sites',
+    description: 'Sites modernos, rápidos e que funcionam bem no celular, do portfólio à loja virtual.',
+    items: ['Landing pages e institucionais', 'Lojas virtuais', 'Login com Google e área do cliente', 'Hospedagem e domínio configurados'],
+    example: 'arpus',
+  },
+  {
+    id: 'sistemas',
+    icon: '[≡]',
+    accent: 'var(--lime)',
+    title: 'Sistemas',
+    description: 'Sistemas sob medida para organizar o seu negócio, com painel administrativo e regras do seu jeito.',
+    items: ['Painéis administrativos', 'Multiempresa e multiusuário', 'Rankings, relatórios e automações', 'Notificações e tarefas agendadas'],
+    example: 'real-teens',
+  },
+  {
+    id: 'ia',
+    icon: '✦',
+    accent: 'var(--amber)',
+    title: 'Inteligência Artificial',
+    description: 'IA aplicada ao seu dia a dia: atendimento, automação e respostas a partir dos seus dados.',
+    items: ['Chatbots e assistentes', 'Automação de tarefas repetitivas', 'Busca inteligente em documentos', 'Integração com ChatGPT, Claude e afins'],
+  },
+];
 
 // status: 'produção' | 'em desenvolvimento' | 'arquivado'
 // repo/demo: use '' quando não houver link. repoPrivate: true mostra "solicitar acesso".

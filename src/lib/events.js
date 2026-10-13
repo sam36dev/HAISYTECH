@@ -9,6 +9,12 @@ export function openProject(id) {
   window.dispatchEvent(new CustomEvent('ds:open-project', { detail: id }));
 }
 
+// Serviços escolhidos vão pré-marcados para o formulário de contato
+export function requestServices(ids) {
+  scrollToSection('contato');
+  window.dispatchEvent(new CustomEvent('ds:request-services', { detail: ids }));
+}
+
 export function triggerMatrix() {
   window.dispatchEvent(new CustomEvent('ds:matrix'));
 }

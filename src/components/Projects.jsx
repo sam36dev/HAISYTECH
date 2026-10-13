@@ -30,7 +30,7 @@ export default function Projects() {
 
   return (
     <section id="projetos" className="section container">
-      <SectionHead index="01" label="projetos" title="Coisas que eu construí">
+      <SectionHead index="02" label="projetos" title="Coisas que eu construí">
         Uma seleção do que já saiu do editor para o mundo. Clique em um card para ver os detalhes.
       </SectionHead>
 
