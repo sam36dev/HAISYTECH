@@ -27,6 +27,7 @@ export const profile = {
 
 export const categories = {
   web: 'Web',
+  jogo: 'Jogo',
   api: 'API',
   mobile: 'Mobile',
   ia: 'IA',
@@ -36,6 +37,25 @@ export const categories = {
 // status: 'produção' | 'em desenvolvimento' | 'arquivado'
 // repo/demo: use '' quando não houver link. repoPrivate: true mostra "solicitar acesso".
 export const projects = [
+  {
+    id: 'real-teens',
+    title: 'The Real Teens',
+    category: 'jogo',
+    year: 2026,
+    status: 'produção',
+    stack: ['Next.js', 'React', 'Supabase', 'PostgreSQL', 'Web Push', 'Vercel Cron'],
+    description:
+      'Jogo de batalha de cartas bíblico feito para jovens da igreja: para continuar jogando, é preciso ler a Bíblia e responder quizzes.',
+    highlights: [
+      'Motor de batalha por turnos com classes, raridades e durabilidade de cartas',
+      'Desafios de leitura bíblica diária que liberam pacotes, troféus e cartas especiais',
+      'Multi-igreja: cada igreja tem seu subdomínio e ranking isolados',
+      'Ranking, missões diárias, tribos, bots e resets automáticos via cron',
+    ],
+    repo: 'https://github.com/sam36dev/The_Real_Teens',
+    repoPrivate: true,
+    demo: 'https://www.thetruebattle.com/dashboard',
+  },
   {
     id: 'arpus',
     title: 'Arpus JDM',
