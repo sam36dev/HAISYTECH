@@ -18,9 +18,9 @@ export const profile = {
   mainStack: ['TypeScript', 'React', 'Node.js', 'SQL'],
   focus: ['performance', 'UX', 'código limpo'],
   // TROCAR pelos seus contatos reais
-  email: 'contato@exemplo.dev',
+  email: 'samueldesenvolvedor36@gmail.com',
   socials: [
-    { label: 'GitHub', url: 'https://github.com/', handle: '@haisytech' },
+    { label: 'GitHub', url: 'https://github.com/sam36dev', handle: '@sam36dev' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/', handle: 'company/haisytech' },
   ],
 };
@@ -33,85 +33,26 @@ export const categories = {
   ferramenta: 'Ferramenta',
 };
 
-// Projetos de EXEMPLO — substitua pelos seus.
 // status: 'produção' | 'em desenvolvimento' | 'arquivado'
-// repo/demo: use '' quando não houver link.
+// repo/demo: use '' quando não houver link. repoPrivate: true mostra "solicitar acesso".
 export const projects = [
   {
-    id: 'nebula',
-    title: 'Nebula Commerce',
+    id: 'arpus',
+    title: 'Arpus JDM',
     category: 'web',
-    year: 2025,
+    year: 2026,
     status: 'produção',
-    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-    description: 'E-commerce headless com checkout em uma página e painel administrativo em tempo real.',
+    stack: ['React', 'Vite', 'React Router', 'Google OAuth', 'CSS Modules'],
+    description:
+      'Loja online de colecionáveis JDM: miniaturas em escala, acessórios e pacotes de cartas com mecânica de raridade.',
     highlights: [
-      'Checkout em uma única etapa',
-      'Painel com vendas atualizadas ao vivo',
-      'Catálogo com busca instantânea',
+      'Abertura de pacotes de cartas com raridades e álbum de coleção',
+      'Login com Google, carrinho, cupons e pagamento via PIX',
+      'Painel administrativo com produtos, coleções, clientes, chamados e ranking',
     ],
-    repo: '',
-    demo: '',
-  },
-  {
-    id: 'pulse',
-    title: 'Pulse API',
-    category: 'api',
-    year: 2025,
-    status: 'produção',
-    stack: ['Node.js', 'Fastify', 'Redis', 'Docker'],
-    description: 'API de alta performance com rate limiting, cache distribuído e documentação OpenAPI automática.',
-    highlights: ['Cache em Redis com invalidação por evento', 'Rate limiting por chave de API', 'Docs OpenAPI geradas do código'],
-    repo: '',
-    demo: '',
-  },
-  {
-    id: 'sentinel',
-    title: 'Sentinel Monitor',
-    category: 'web',
-    year: 2024,
-    status: 'produção',
-    stack: ['React', 'WebSocket', 'Go', 'Grafana'],
-    description: 'Dashboard de monitoramento de serviços com alertas e gráficos em tempo real via WebSocket.',
-    highlights: ['Métricas em streaming', 'Alertas configuráveis', 'Histórico de incidentes'],
-    repo: '',
-    demo: '',
-  },
-  {
-    id: 'lexicon',
-    title: 'Lexicon AI',
-    category: 'ia',
-    year: 2025,
-    status: 'em desenvolvimento',
-    stack: ['Python', 'FastAPI', 'Embeddings', 'pgvector'],
-    description: 'Busca semântica sobre documentos internos: pergunte em linguagem natural e receba a resposta com as fontes.',
-    highlights: ['Indexação de PDFs e páginas', 'Respostas com citação das fontes', 'Busca híbrida (texto + vetor)'],
-    repo: '',
-    demo: '',
-  },
-  {
-    id: 'orbit',
-    title: 'Orbit Tasks',
-    category: 'mobile',
-    year: 2024,
-    status: 'arquivado',
-    stack: ['React Native', 'Expo', 'SQLite'],
-    description: 'App de tarefas offline-first com sincronização quando a conexão volta.',
-    highlights: ['Funciona 100% offline', 'Sincronização sem conflitos', 'Lembretes locais'],
-    repo: '',
-    demo: '',
-  },
-  {
-    id: 'forge',
-    title: 'Forge CLI',
-    category: 'ferramenta',
-    year: 2023,
-    status: 'produção',
-    stack: ['Node.js', 'TypeScript', 'Commander'],
-    description: 'CLI que gera projetos prontos com lint, testes e CI configurados em um único comando.',
-    highlights: ['Templates plugáveis', 'Setup de CI automático', 'Zero configuração inicial'],
-    repo: '',
-    demo: '',
+    repo: 'https://github.com/sam36dev/Arpus_JDM',
+    repoPrivate: true,
+    demo: 'https://www.arpusjdm.com/',
   },
 ];
 

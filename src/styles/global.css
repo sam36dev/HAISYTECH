@@ -1043,6 +1043,7 @@ kbd,
   color: var(--dim);
 }
 .card-title {
+  margin: 0;
   font-size: 23px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -1076,9 +1077,112 @@ kbd,
   transition: all 0.25s var(--ease);
 }
 .project-card:hover .card-open,
-.project-card:focus-visible .card-open {
+.project-card:focus-within .card-open {
   opacity: 1;
   transform: none;
+}
+/* o link do título cobre o card inteiro; o botão do GitHub fica por cima */
+.card-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.card-link:focus-visible {
+  outline: none;
+}
+.project-card:has(.card-link:focus-visible) {
+  border-color: var(--cyan);
+}
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.card-repo {
+  position: relative;
+  cursor: pointer;
+  background: none;
+  font: inherit;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -8px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+.card-repo-wrap {
+  position: relative;
+  z-index: 3;
+}
+.card-repo-lock {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--amber);
+}
+.repo-popover {
+  position: absolute;
+  right: -8px;
+  bottom: calc(100% + 14px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(270px, 80vw);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
+  text-align: left;
+  animation: card-in 0.25s var(--ease);
+}
+.repo-popover-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--amber);
+  font-size: 12px;
+}
+.repo-popover-text {
+  color: var(--muted);
+  font-family: var(--font-sans, inherit);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.repo-popover-btn {
+  justify-content: center;
+  font-size: 13px;
+}
+.card-repo:hover,
+.card-repo:focus-visible {
+  color: var(--cyan);
+  border-color: rgba(0, 229, 255, 0.45);
+  background: rgba(0, 229, 255, 0.08);
 }
 
 /* modal */
