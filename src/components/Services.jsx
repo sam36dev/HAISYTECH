@@ -11,7 +11,7 @@ export default function Services() {
 
   return (
     <section id="servicos" className="section container">
-      <SectionHead index="01" label="serviços" title="O que eu posso construir pra você">
+      <SectionHead index="01" label="serviços" title="O que eu posso construir pra você?">
         Escolha um ou mais serviços e peça um orçamento. Sem compromisso.
       </SectionHead>
 
