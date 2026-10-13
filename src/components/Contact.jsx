@@ -108,7 +108,7 @@ export default function Contact() {
             textarea
             value={form.mensagem}
             onChange={update('mensagem')}
-            placeholder="Conta aí o que você tem em mente..."
+            placeholder="Explique detalhadamente o seu projeto e um dos nossos devs entrará em contato."
           />
           <button className="btn btn-primary btn-send" disabled={status === 'sending'}>
             {status === 'sending' ? 'enviando...' : 'enviar request'} <span aria-hidden="true">⏎</span>
