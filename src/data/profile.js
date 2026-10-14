@@ -133,8 +133,9 @@ export const skillGroups = [
 
 // Linha do tempo em estilo "git log". EXEMPLOS — substitua pelos seus.
 export const timeline = [
-  { date: '2025', type: 'feat', title: 'Lançou a Nebula Commerce em produção', org: 'Projeto próprio', text: 'Arquitetura headless, checkout em uma etapa e painel em tempo real.' },
-  { date: '2024', type: 'perf', title: 'Reduziu a latência da API em 60%', org: 'Empresa X', text: 'Cache distribuído, filas e revisão das queries mais pesadas.' },
-  { date: '2023', type: 'feat', title: 'Criou a Forge CLI', org: 'Open source', text: 'Ferramenta interna que virou padrão para iniciar novos projetos.' },
-  { date: '2022', type: 'init', title: 'Primeiro commit como dev profissional', org: 'Início da jornada', text: 'Onde tudo começou.' },
+  { date: '2026', type: 'feat', title: 'Haisy Tech', org: 'Haisy Tech', text: 'Sites, sistemas, APIs e IA sob medida. Projetos: The Real Teens e Arpus JDM.' },
+  { date: '2025', type: 'perf', title: 'IA, banco de dados e automações', org: 'Mercado de energia', text: 'Inteligência artificial, banco de dados e automações.' },
+  { date: '2024', type: 'feat', title: 'Início da trajetória no mercado de energia', org: 'Mercado de energia', text: 'Início de uma trajetória no mercado de energia.' },
+  { date: '2023', type: 'feat', title: 'Primeiro commit como dev profissional', org: 'Projeto de jogos', text: 'Primeiro trabalho como dev profissional, em um projeto de jogos.' },
+  { date: '2022', type: 'init', title: 'Início dos estudos', org: 'Início da jornada', text: 'Início dos estudos em programação.' },
 ];
